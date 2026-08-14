@@ -1,0 +1,75 @@
+@mixin theme-variant($color) {
+  .left-arrow,
+  .right-arrow {
+    background: var(--color-#{$color});
+  }
+
+  .paginationItem {
+    &.active {
+      color: var(--color-#{$color}-text);
+    }
+  }
+}
+
+.navigation {
+  width: 100%;
+  margin: 2rem 0;
+
+  nav {
+    width: 100%;
+    display: flex;
+    flex: row;
+    justify-content: center;
+  }
+
+  .paginationItem {
+    color: inherit;
+    text-decoration: underline;
+    padding-inline: 19px;
+    font-size: 1.28571rem !important;
+    font-family: var(--font-bold);
+
+    &.active {
+      color: var(--color-leaf-text);
+      text-decoration: none;
+    }
+  }
+
+  .left-arrow,
+  .right-arrow {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0;
+
+    svg {
+      height: 35px;
+      width: 35px;
+      fill: white;
+      color: white;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  &.leaf {
+    @include theme-variant(leaf);
+  }
+  &.lips {
+    @include theme-variant(lips);
+  }
+  &.grape {
+    @include theme-variant(grape);
+  }
+  &.sun {
+    @include theme-variant(sun);
+  }
+}

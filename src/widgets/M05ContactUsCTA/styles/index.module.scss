@@ -1,0 +1,137 @@
+@use '@/styles/mixins/breakpoints';
+@use '@/styles/variables.scss' as vars;
+
+@mixin theme-m05-variant($color) {
+  .mo5_content {
+    background-color: var(--background-color, var(--color-#{$color}));
+  }
+}
+
+.mo5 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    padding: 5rem 0;
+  }
+
+  & .mo5_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 50% 50%;
+      padding: 0;
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      grid-template-columns: 35% 65%;
+    }
+
+    @include breakpoints.media-breakpoint-up(xl) {
+      grid-template-columns: 33% 67%;
+      padding: 0;
+    }
+  }
+
+  & .mo5_image {
+    max-height: 700px;
+  }
+
+  & .mo5_content {
+    color: white;
+    padding: 2.5rem 1rem 1.5rem;
+    place-content: center;
+
+    svg {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      padding: 3rem;
+    }
+  }
+
+  & .mo5_icon {
+    margin-bottom: 1.78rem;
+  }
+
+  & .mo5_title {
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+
+  // Higher specificity to override Typography inline styles
+  & .mo5_title[style*='--font'] {
+    font-size: 30px;
+  }
+
+  & .mo5_subtitle {
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+    opacity: 0.9;
+
+    a {
+      color: white;
+    }
+
+    td {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+
+      li {
+        line-height: 1.5;
+      }
+    }
+
+    ol {
+      list-style: decimal;
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+
+      li {
+        line-height: 1.5;
+      }
+    }
+
+    p {
+      margin: 0 0 1rem 0;
+      line-height: 1.5;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  & .mo5_button {
+    margin-top: 2.5rem;
+    width: 100%;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      width: fit-content;
+    }
+  }
+
+  // Theme variations
+  @each $color in vars.$colors {
+    &.#{$color} {
+      @include theme-m05-variant($color);
+    }
+  }
+}
+
+.m05_image {
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,14 @@
+@use '@/styles/mixins/breakpoints';
+.image-desktop {
+  display: none;
+  @include breakpoints.media-breakpoint-up(md) {
+    display: block;
+  }
+}
+
+.image-mobile {
+  display: block;
+  @include breakpoints.media-breakpoint-up(md) {
+    display: none;
+  }
+}

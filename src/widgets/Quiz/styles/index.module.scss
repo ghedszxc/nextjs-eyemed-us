@@ -1,0 +1,74 @@
+@use '@/styles/mixins/breakpoints.scss';
+@use '@/styles/variables.scss' as vars;
+
+.quiz {
+  width: 100%;
+  background-color: var(--color-leaf);
+  color: var(--color-white);
+  padding: 1.5rem 0;
+
+  @each $color in vars.$colors {
+    &.#{$color} {
+      background-color: var(--color-#{$color});
+    }
+  }
+
+  .container {
+    width: 100%;
+    max-width: 69.28571rem;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: left;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      text-align: center;
+    }
+  }
+
+  h4 {
+    text-transform: none;
+    margin-bottom: 1rem;
+  }
+
+  .questions {
+    margin-top: 1.5rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+
+    .item {
+      padding: 0 1rem;
+      flex: 0 1 100%;
+      max-width: 100%;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        flex: 0 1 33.33333%;
+        max-width: 33.33333%;
+      }
+
+      button {
+        display: inline-block;
+        border-width: 3px !important;
+
+        &:first-of-type {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

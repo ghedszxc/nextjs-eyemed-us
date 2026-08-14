@@ -1,0 +1,52 @@
+@use 'src/styles/_variables.scss' as variables;
+
+@mixin media-breakpoint-up($key) {
+  $value: map-get(variables.$grid-breakpoints, $key);
+  @media (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($key1, $key2) {
+  $value1: map-get(variables.$grid-breakpoints, $key1);
+  $value2: map-get(variables.$grid-breakpoints, $key2);
+  @media (min-width: $value1) and (max-width: $value2) {
+    @content;
+  }
+}
+
+@mixin media-max-width-600 {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-md {
+  @include media-breakpoint-up(md) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-lg {
+  @include media-breakpoint-up(xl) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-xl {
+  @include media-breakpoint-up(xl) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-xxl {
+  @include media-breakpoint-up(xxl) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up-xxxl {
+  @include media-breakpoint-up(xxxl) {
+    @content;
+  }
+}

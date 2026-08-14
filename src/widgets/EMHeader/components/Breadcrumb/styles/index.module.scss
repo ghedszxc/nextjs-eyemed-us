@@ -1,0 +1,70 @@
+.breadcrumb {
+  width: 100%;
+  background-color: var(--color-leaf);
+  color: var(--color-white);
+  z-index: 8887;
+  position: sticky;
+  top: 0;
+
+  a {
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 69.28571rem;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
+
+  &.noCrumbs {
+    height: 0.35714rem;
+    position: relative;
+  }
+
+  ul {
+    display: block;
+    width: 100%;
+    line-height: 2.1;
+
+    li {
+      display: inline-block;
+      margin: 0 1.5rem 0 0;
+      text-transform: capitalize;
+      cursor: default;
+      font-family: var(--font-book);
+      font-weight: 300;
+      font-size: var(--text-size-md);
+      color: var(--color-white);
+      position: relative;
+
+      &:not(:last-of-type)::after {
+        content: '/';
+        right: -17px;
+        position: absolute;
+      }
+
+      &.active {
+        font-family: var(--font-heavy);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+}

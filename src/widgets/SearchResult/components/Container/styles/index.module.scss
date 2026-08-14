@@ -1,0 +1,11 @@
+.blogContainer {
+  width: 100%;
+
+  .content {
+    width: 100%;
+    max-width: 69.28571rem;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}

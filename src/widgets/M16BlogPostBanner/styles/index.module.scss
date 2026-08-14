@@ -1,0 +1,61 @@
+@use '@/styles/mixins/breakpoints';
+@use '@/styles/variables.scss' as vars;
+
+.m16_blog_post_banner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--color-grape);
+  padding: 1rem 1.5rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+  }
+
+  & .m16_blog_post_banner_logo {
+    height: auto;
+    max-height: 6rem;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+
+    @media (min-width: 768px) {
+      max-height: 7rem;
+    }
+  }
+
+  & .m16_blog_post_banner_content {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      flex: 1;
+      min-width: 0;
+      text-align: left;
+    }
+  }
+
+  & .m16_blog_post_banner_message {
+    margin: 0;
+    color: #fff;
+    font-size: var(--text-size-5xl);
+    font-family: var(--font-light);
+    font-weight: 400;
+    white-space: pre-line;
+  }
+
+  // Theme variations - using @each for higher specificity
+  @each $color in vars.$colors {
+    &.#{$color} {
+      background-color: var(--color-#{$color});
+    }
+  }
+
+  // Gray theme (not in $colors list)
+  &.gray {
+    background-color: var(--color-gray);
+  }
+}

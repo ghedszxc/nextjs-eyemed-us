@@ -1,0 +1,220 @@
+@use '@/styles/variables.scss' as vars;
+@use '@/styles/mixins/breakpoints';
+
+.mo7 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 3.57143rem 0;
+
+  & .mo7_container {
+    padding: 0 1rem;
+    width: 100%;
+    text-align: center;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      width: 69.28571rem;
+    }
+  }
+
+  & .mo7_container_items {
+    display: flex;
+    flex-wrap: wrap;
+    // place-content: start space-around;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      gap: 0 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      gap: 0;
+      padding: 0 0.5rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @each $color in vars.$colors {
+    & .mo7_card_#{$color} {
+      h2 {
+        color: var(--color-#{$color}-text);
+        font-family: var(--font-book);
+        font-size: var(--text-size-6xl);
+        line-height: 40px;
+        text-align: left;
+
+        margin-bottom: 40px;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          margin-bottom: 20px;
+          text-align: center;
+        }
+
+        @include breakpoints.media-breakpoint-up(xl) {
+          margin-bottom: 2.14286rem;
+        }
+      }
+
+      p {
+        text-align: left;
+        color: var(--color-moon-text);
+        font-family: var(--font-regular);
+
+        justify-self: center;
+        font-size: var(--text-size-md);
+        margin-bottom: 40px;
+        max-width: 100%;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          max-width: 41.64286rem;
+          font-size: var(--text-size-3xl);
+        }
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          max-width: 55.64286rem;
+
+          font-size: var(--text-size-3xl);
+        }
+      }
+
+      sup {
+        font-size: var(--text-size-base);
+        color: var(--color-#{$color}-text);
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    & .mo7_#{$color}_theme {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 30px;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        flex-basis: 49%;
+        margin-bottom: 30px;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        flex-basis: 33%;
+        padding-left: 0.9rem;
+        margin-bottom: 0;
+      }
+
+      & .mo7_#{$color}_theme__card {
+        display: grid;
+        height: 100%;
+      }
+
+      & .mo7_#{$color}_theme__body {
+        display: flex;
+      }
+
+      & .mo7_#{$color}_theme__withIcon {
+        width: 80%;
+      }
+
+      & .mo7_#{$color}_theme__withoutIcon {
+        width: 100%;
+      }
+
+      & .mo7_#{$color}_theme__icon {
+        width: 4.28571rem;
+        height: 4.28571rem;
+        margin: 0.5rem 1.3rem 0 0;
+      }
+
+      & .mo7_#{$color}_theme__title {
+        color: var(--color-#{$color}-text);
+        font-family: var(--font-xbold);
+        font-size: var(--text-size-xl);
+        line-height: 1.5;
+
+        text-align: left;
+        text-transform: uppercase;
+        margin-bottom: -0.5rem;
+      }
+
+      & .mo7_#{$color}_theme__subtitle {
+        color: var(--color-moon-text);
+        font-size: 1.2rem !important;
+
+        margin-bottom: 0;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          margin-bottom: 3rem;
+        }
+
+        a {
+          color: var(--color-#{$color}-text);
+        }
+
+        strong,
+        b {
+          font-family: var(--font-xbold);
+        }
+
+        sup {
+          font-size: var(--text-size-base);
+          color: var(--color-#{$color}-text);
+
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+
+        @include breakpoints.media-breakpoint-up(xl) {
+          font-size: 1rem !important;
+        }
+      }
+    }
+
+    & .m07_footNote {
+      text-align: left;
+      color: var(--color-moon-text);
+      font-family: var(--font-regular);
+
+      display: grid;
+      justify-self: center;
+      font-size: var(--text-size-md);
+      margin-bottom: 30px;
+
+      width: 100%;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        max-width: 41.64286rem;
+        font-size: var(--text-size-3xl);
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        max-width: 55.64286rem;
+      }
+    }
+
+    .footNote_text_italic {
+      font-style: italic;
+      font-size: var(--text-size-xs);
+
+      @include breakpoints.media-breakpoint-up(md) {
+        font-size: var(--text-size-md);
+      }
+    }
+
+    & .m07_card_actions {
+      justify-items: center;
+
+      & .m07_card_actions__button {
+        width: 95%;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          width: auto;
+        }
+      }
+    }
+  }
+}

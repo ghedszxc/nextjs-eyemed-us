@@ -1,0 +1,81 @@
+@use '@/styles/mixins/breakpoints';
+@use '@/styles/variables.scss' as vars;
+
+.mo3 {
+  width: 100%;
+  padding: 4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    padding: 5rem 0;
+  }
+
+  & .mo3_container {
+    width: 100%;
+    max-width: 69.28571rem;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+
+    @media (min-width: 768px) {
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @each $color in vars.$colors {
+    .mo3_title_#{$color} {
+      margin: 0;
+      text-align: left;
+      font-size: var(--text-size-6xl);
+      line-height: 1.233;
+      font-weight: 300;
+      color: var(--color-#{$color}-text);
+
+      @media (min-width: 768px) {
+        flex: 0 1 36%;
+        margin-right: auto;
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      @media (min-width: 960px) {
+        flex: 0 1 31%;
+      }
+    }
+
+    .mo3_description_#{$color} {
+      margin: 0;
+      font-size: var(--text-size-sm);
+      line-height: 1.5;
+      padding: 0;
+      color: var(--color-moon-text);
+
+      @media (min-width: 768px) {
+        flex: 0 1 30%;
+        padding: 0;
+      }
+
+      @media (min-width: 960px) {
+        flex: 0 1 35%;
+        margin: 0 auto;
+      }
+
+      a {
+        color: var(--color-#{$color}-text);
+      }
+    }
+  }
+
+  & .mo3_button {
+    @media (min-width: 768px) {
+      flex: 0 1 auto;
+      margin-left: auto;
+    }
+  }
+}

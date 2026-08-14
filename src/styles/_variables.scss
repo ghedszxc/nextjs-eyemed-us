@@ -1,0 +1,218 @@
+$unit-scale: 16px !default;
+$spacing-unit-scale: 4px !default;
+
+// BREAKPOINTS
+$grid-breakpoints: (
+  sm: 0,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px,
+  xxxl: 1920px,
+) !default;
+
+// Z-INDEX
+$z-index-lv5: 5 !default;
+$z-index-lv4: 4 !default;
+$z-index-lv3: 3 !default;
+$z-index-lv2: 2 !default;
+$z-index-lv1: 1 !default;
+
+// Drawer
+$drawer-z-index: 1200 !default;
+
+// grid of products / grid view products
+$gridColumns: (
+  sm: 2,
+  md: 2,
+  lg: 4,
+  xl: 4,
+  xxl: 4,
+);
+
+// COLORS
+$colors: leaf, grape, lips, sun, moon;
+
+// colors
+// text
+$color_leaf: #227b13;
+$color_grape: #9f248f;
+$color_lips: #b5055b;
+$color_sun: #c43400;
+$color_moon: darken(#767777, 2%);
+$color_placeholder: #686d6e;
+
+$color_brand_dark_leaf: #00661f;
+$color_brand_classic_leaf: #36982e;
+$color_brand_bright_leaf: #84e8a4;
+$color_brand_light_leaf: #e0f9e8;
+
+$color_brand_dark_grape: #750068;
+$color_brand_classic_grape: #9f248f;
+$color_brand_bright_grape: #ea9be7;
+$color_brand_light_grape: #fbebfa;
+
+$color_brand_dark_lips: #8e0032;
+$color_brand_classic_lips: #e40571;
+$color_brand_bright_lips: #ff94b4;
+$color_brand_light_lips: #ffeaf0;
+
+$color_brand_dark_sun: #af2503;
+$color_brand_classic_sun: #eb5100;
+$color_brand_bright_sun: #ffb469;
+$color_brand_light_sun: #fff0e1;
+
+$color_brand_black_text: #000000;
+$color_brand_moon_text: #6b6b6b;
+$color_brand_moon_logo: #989999;
+$color_brand_white: #ffffff;
+
+// graphics, icons, backgrounds
+$color_leaf_bg: #308729;
+$color_grape_bg: #9f248f;
+$color_lips_bg: #e40571;
+$color_sun_bg: #d04800;
+$color_moon_bg: #767777;
+
+$color_leaf_icon: $color_leaf_bg;
+$color_grape_icon: $color_grape_bg;
+$color_lips_icon: $color_lips_bg;
+$color_sun_icon: $color_sun_bg;
+$color_moon_icon: $color_moon_bg;
+
+// helpers, special backgrounds
+$color_leaf_light: #78bd59;
+$color_leaf_ada: #308729;
+$color_ultra_ada: #447f2f;
+$color_grape_light: #a7589b;
+$color_lips_light: #e95887;
+$color_sun_light: #f79550;
+
+$leaf: $color_leaf;
+$leaf_light: $color_leaf_light;
+$leaf_ada: $color_leaf_ada;
+$ultra_ada: $color_ultra_ada;
+$grape: $color_grape;
+$grape_light: $color_grape_light;
+$lips: $color_lips;
+$lips_light: $color_lips_light;
+$sun: $color_sun;
+$sun_light: $color_sun_light;
+$color_light-gray-alt: #efefef;
+$color_light-gray: #f8f8f8;
+$color_light_gray: $color_light-gray;
+$color_search_background: #e7e7e7;
+$color_search_text: #606466;
+$color_error: #d0021b;
+$color_border: #9b9b9b;
+$color_border_light: #eaebeb;
+
+$color-options: (dark-leaf, $color_brand_dark_leaf), (classic-leaf, $color_leaf),
+  (bright-leaf, $color_brand_bright_leaf), (light-leaf, $color_brand_light_leaf),
+  (dark-grape, $color_brand_dark_grape), (classic-grape, $color_grape),
+  (bright-grape, $color_brand_bright_grape), (light-grape, $color_brand_light_grape),
+  (dark-sun, $color_brand_dark_sun), (classic-sun, $color_sun),
+  (bright-sun, $color_brand_bright_sun), (light-sun, $color_brand_light_sun),
+  (dark-lips, $color_brand_dark_lips), (classic-lips, $color_lips),
+  (bright-lips, $color_brand_bright_lips), (light-lips, $color_brand_light_lips),
+  (black-text, $color_brand_black_text), (moon-text, $color_brand_moon_text),
+  (moon-logo, $color_brand_moon_logo);
+
+@each $name, $color in $color-options {
+  .#{$name}-colors {
+    &,
+    * {
+      color: $color !important;
+    }
+  }
+
+  .#{$name}-h-colors {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $color !important;
+    }
+  }
+
+  .#{$name}-p-colors {
+    p {
+      color: $color !important;
+    }
+  }
+
+  .#{$name}-btn-colors {
+    @if str_index($name, 'bright') {
+      .btn {
+        color: white !important;
+      }
+    } @else {
+      .btn {
+        color: $color !important;
+      }
+    }
+  }
+
+  .#{$name}-btn-hover-colors {
+    .btn:hover {
+      color: $color !important;
+    }
+  }
+
+  .#{$name}-btn-bgs {
+    .btn {
+      background: $color !important;
+    }
+  }
+
+  .#{$name}-btn-hover-bgs {
+    .btn:hover {
+      background: $color !important;
+    }
+  }
+
+  .#{$name}-btn-borders {
+    .btn {
+      border-color: $color !important;
+    }
+  }
+
+  .#{$name}-bgs {
+    &,
+    * {
+      --background-color: #{$color};
+    }
+  }
+
+  .#{$name}-hover-bgs {
+    &,
+    * {
+      &:hover {
+        --background-color: #{$color};
+      }
+    }
+  }
+
+  .#{$name}-fills {
+    &,
+    * {
+      fill: $color !important;
+    }
+  }
+
+  .#{$name}-strokes {
+    &,
+    * {
+      stroke: $color !important;
+    }
+  }
+
+  .#{$name}-borders {
+    &,
+    * {
+      border-color: $color !important;
+    }
+  }
+}

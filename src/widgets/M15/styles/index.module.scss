@@ -1,0 +1,58 @@
+@use '@/styles/variables.scss' as vars;
+@use '@/styles/mixins/breakpoints';
+
+.m15 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 2.35714rem;
+
+  @include breakpoints.media-breakpoint-up(md) {
+    padding-bottom: 3.57143rem;
+  }
+
+  &.first {
+    padding-top: 3.57143rem;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      padding-top: 2.35714rem;
+    }
+  }
+
+  @each $color in vars.$colors {
+    &.#{$color} {
+      h3 {
+        color: var(--color-#{$color}-text);
+      }
+    }
+  }
+
+  .container {
+    width: 100%;
+    max-width: 69.28571rem;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
+
+  .row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0 2rem;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .item {
+    margin-bottom: 2.14286rem;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      margin-bottom: 0.71429rem;
+    }
+  }
+}

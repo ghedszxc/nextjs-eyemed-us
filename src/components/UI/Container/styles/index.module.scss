@@ -1,0 +1,52 @@
+@use '@/styles/mixins/breakpoints';
+
+.container {
+  width: 100%;
+  display: block;
+
+  &.variant-white {
+    background-color: white;
+  }
+
+  &.variant-gray {
+    background-color: #f8f8f8;
+  }
+}
+
+.content {
+  max-width: 69.28571rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0 1.07143rem;
+
+  @include breakpoints.media-breakpoint-up(md) {
+    padding: 0 1rem;
+  }
+
+  // @include breakpoints.media-breakpoint-up(lg) {
+  //   padding: 0 3rem;
+  // }
+
+  &.no-padding-mobile {
+    @media (max-width: 767px) {
+      padding: 0;
+    }
+  }
+
+  &.no-padding-tablet {
+    @include breakpoints.media-breakpoint-up(md) {
+      padding: 0;
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      padding: 0 1rem;
+    }
+  }
+
+  &.no-padding-desktop {
+    @include breakpoints.media-breakpoint-up(xl) {
+      padding: 0;
+    }
+  }
+}

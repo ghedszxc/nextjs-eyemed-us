@@ -1,0 +1,147 @@
+@use '@/styles/mixins/breakpoints';
+
+@mixin theme-variant($color) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: var(--color-#{$color}-text);
+  }
+
+  .buttonSvg {
+    background-color: var(--color-#{$color});
+  }
+
+  .exerp {
+    color: var(--color-moon-text);
+    text-decoration-color: var(--color-moon-text);
+  }
+}
+
+.searchResultItem {
+  width: 100%;
+  position: relative;
+  background-color: #f8f8f8;
+  border: 1px solid #eaebeb;
+  margin-top: 2rem;
+  min-height: 4.64286rem;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  padding: 2.5rem 1.5rem 1.5rem;
+  text-decoration: none;
+  justify-content: center;
+
+  &:hover {
+    // .resultContent {
+    //   text-decoration: underline;
+    // }
+
+    h2 {
+      text-decoration: underline;
+    }
+    .exerp {
+      text-decoration: underline;
+    }
+  }
+
+  // h2 {
+  //   white-space: nowrap;
+  //   // overflow: hidden;
+  //   text-overflow: ellipsis;
+  //   // max-width: 100%;
+  // }
+
+  .resultContent {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .imageWrapper {
+      overflow: hidden;
+      width: 100%;
+      // min-width: 150px;
+      min-height: 150px;
+      position: relative;
+      @include breakpoints.media-breakpoint-up(md) {
+        width: 150px;
+        height: 150px;
+        margin-right: 2rem;
+      }
+      img {
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
+    }
+    .truncate {
+      width: 100%;
+      h2 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .exerp {
+      color: var(--color-moon-text);
+    }
+  }
+
+  //Theming
+  &.leaf {
+    @include theme-variant(leaf);
+  }
+
+  &.grape {
+    @include theme-variant(grape);
+  }
+
+  &.sun {
+    @include theme-variant(sun);
+  }
+
+  &.lips {
+    @include theme-variant(lips);
+  }
+
+  .buttonSvg {
+    color: #308729;
+    width: 3.92857rem;
+    height: 3.92857rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    fill: #fff;
+    color: #fff;
+    height: 2.14286rem;
+    width: 2.14286rem;
+
+    svg {
+      height: 18px;
+      width: 18px;
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+}

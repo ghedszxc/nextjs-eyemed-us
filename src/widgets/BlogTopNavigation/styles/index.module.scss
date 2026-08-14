@@ -1,0 +1,250 @@
+@use '@/styles/variables.scss' as vars;
+@use '@/styles/mixins/breakpoints';
+
+.blog_top_navigation {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    padding: 0.85714rem 0;
+  }
+
+  @include breakpoints.media-breakpoint-up(xl) {
+    padding: 0.55714rem 0;
+  }
+
+  @each $color in vars.$colors {
+    & .blog_container_#{$color} {
+      width: 100%;
+      padding: 1rem;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        max-width: 67.28571rem;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        padding: 0;
+      }
+    }
+
+    & .blog_header {
+      display: grid;
+
+      width: 100%;
+      grid-template-columns: repeat(1, 1fr);
+
+      @include breakpoints.media-breakpoint-up(md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      div,
+      form,
+      a {
+        display: flex;
+        place-items: center;
+        text-decoration: none;
+      }
+
+      & .blog_header__icon {
+        margin-right: 0.5rem;
+        height: 3.8rem;
+        width: 3.8rem;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          height: 4.9rem;
+          width: 4.9rem;
+        }
+
+        @include breakpoints.media-breakpoint-up(xl) {
+          height: 4.4rem;
+          width: 4.4rem;
+        }
+      }
+
+      & .blog_header__title_#{$color} {
+        font-family: var(--font-light);
+
+        font-size: var(--text-size-6xl);
+        line-height: 1.077;
+
+        margin: 1.85714rem 0;
+        color: var(--color-#{$color}-text);
+
+        @include breakpoints.media-breakpoint-up(md) {
+          font-size: var(--text-size-6xl);
+        }
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          font-size: var(--text-size-8xl);
+        }
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+          text-decoration-color: var(--color-#{$color}-text);
+        }
+      }
+
+      // 2ND DIV
+      & .blog_header__secondDiv {
+        display: flex;
+        justify-content: flex-end;
+
+        margin-bottom: 1rem;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          margin-bottom: 0;
+        }
+      }
+
+      & .blog_header__divInput {
+        position: relative;
+        width: 100%;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          width: 60%;
+        }
+      }
+
+      & .blog_header__input {
+        border-radius: 0;
+        background-color: #f8f8f8;
+        border: none;
+
+        color: var(--color-gray);
+        font-family: var(--font-bold);
+        font-size: 0.975rem;
+        padding: 0.6rem 0.5rem;
+
+        display: flex;
+        order: 1;
+
+        width: 100%;
+        height: 40px;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          height: 50px;
+          padding: 0.8rem 0.5rem;
+          font-size: var(--text-size-md);
+        }
+
+        @include breakpoints.media-breakpoint-up(xl) {
+          font-family: var(--font-xbold);
+        }
+
+        &::placeholder {
+          color: rgb(182, 182, 182);
+
+          @include breakpoints.media-breakpoint-up(md) {
+            color: transparent;
+          }
+        }
+      }
+
+      input {
+        font-family: var(--font-regular) !important;
+      }
+
+      label {
+        display: none;
+
+        color: var(--color-gray);
+        font-size: var(--text-size-base);
+        font-family: var(--font-bold);
+
+        @include breakpoints.media-breakpoint-up(md) {
+          display: inline;
+
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          transition: all 0.3s ease;
+          color: #888;
+          pointer-events: none;
+        }
+      }
+
+      .blog_header__input:focus + label,
+      .blog_header__input:not(:placeholder-shown) + label {
+        top: -24px;
+        left: 3px;
+        font-size: var(--text-size-sm);
+      }
+
+      & .input_is_empty {
+        border: 2px solid red;
+        border-radius: 10px;
+        margin-right: 1px;
+      }
+
+      & .blog_header__btn_#{$color} {
+        padding: 0 2rem;
+        height: 40px;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          padding: 0 1.2rem;
+        }
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          height: 50px;
+        }
+      }
+    }
+
+    & .blog_footer {
+      @include breakpoints.media-breakpoint-up(lg) {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      & .blog_footer__anchor {
+        color: var(--color-moon-text);
+        text-transform: uppercase;
+
+        display: none;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          display: block;
+        }
+      }
+
+      & .blog_footer__anchor_bold_#{$color} {
+        color: var(--color-#{$color}-text) !important;
+        font-family: var(--font-xbold);
+        text-decoration: none;
+
+        display: none;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          display: block;
+        }
+      }
+    }
+
+    option {
+      text-transform: uppercase;
+      font-family: var(--font-book);
+      color: var(--color-gray);
+      font-size: 1rem;
+    }
+
+    select {
+      padding: 0.8rem;
+      background-color: #f8f8f8;
+      width: 100%;
+      border: none;
+      font-family: var(--font-book);
+      color: var(--color-gray);
+      font-size: 1rem;
+      border-radius: 0;
+
+      appearance: base-select;
+      display: block;
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+  }
+}

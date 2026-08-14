@@ -1,0 +1,81 @@
+@use '@/styles/variables.scss' as vars;
+
+.resource {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  height: 4.28571rem;
+  margin-bottom: 0.71429rem;
+
+  a {
+    text-decoration: none;
+    color: var(--color-leaf-text);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .file-type {
+    position: relative;
+    width: 90%;
+    max-height: 2.5rem;
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: var(--color-leaf);
+      margin-left: 1.42857rem;
+      margin-right: 1.42857rem;
+      width: 100%;
+      height: 100%;
+      max-width: 1.92857rem;
+      max-height: 1.92857rem;
+    }
+
+    span {
+      display: inline;
+    }
+  }
+
+  .btn-svg {
+    width: 3.92857rem;
+    height: 3.92857rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      background-color: var(--color-leaf);
+      fill: var(--color-white);
+      color: var(--color-white);
+      height: 2.14286rem;
+      width: 2.14286rem;
+      padding: 0.5rem;
+    }
+
+    &.no-btn svg {
+      display: none;
+    }
+  }
+
+  @each $color in vars.$colors {
+    &.#{$color} {
+      a {
+        color: var(--color-#{$color}-text);
+      }
+      .file-type {
+        svg {
+          fill: var(--color-#{$color});
+        }
+      }
+      .btn-svg svg {
+        background-color: var(--color-#{$color});
+      }
+    }
+  }
+}

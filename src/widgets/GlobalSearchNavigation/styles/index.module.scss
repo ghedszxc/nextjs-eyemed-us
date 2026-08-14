@@ -1,0 +1,49 @@
+@use '@/styles/mixins/breakpoints';
+
+@mixin theme-variant($color) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: var(--color-#{$color}-text);
+  }
+}
+
+.globalSearchNavigation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+  padding: 1.57143rem 0;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.57143rem 0;
+    gap: 0;
+  }
+  & > :nth-child(even) {
+    flex: 0 0 50%;
+  }
+  & > :nth-child(odd) {
+    flex: 0 0 50%;
+  }
+
+  &.leaf {
+    @include theme-variant(leaf);
+  }
+
+  &.grape {
+    @include theme-variant(grape);
+  }
+
+  &.sun {
+    @include theme-variant(sun);
+  }
+
+  &.lips {
+    @include theme-variant(lips);
+  }
+}

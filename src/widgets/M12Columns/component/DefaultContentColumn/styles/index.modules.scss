@@ -1,0 +1,26 @@
+.defaultContentColumn {
+  .content {
+    margin-bottom: 1.07143rem;
+    margin-top: 0.71429rem;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    justify-content: space-around;
+    height: 100%;
+    &.centered {
+      justify-content: center;
+    }
+  }
+  .image {
+    margin-top: auto;
+    justify-self: flex-end;
+    audio,
+    canvas,
+    iframe,
+    img,
+    svg,
+    video {
+      vertical-align: middle;
+    }
+  }
+}

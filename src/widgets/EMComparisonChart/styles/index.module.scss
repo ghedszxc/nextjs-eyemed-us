@@ -1,0 +1,328 @@
+@use '@/styles/mixins/breakpoints.scss';
+@use '@/styles/variables.scss' as vars;
+
+.comparisonChart {
+  padding-bottom: 3.57143rem;
+  padding-top: 2.35714rem;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    padding: 3.57143rem 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 69.28571rem;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
+
+  .body {
+    text-align: left;
+    margin-bottom: 1.5rem;
+
+    p {
+      font-size: var(--text-size-md);
+      max-width: 55.64286rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include breakpoints.media-breakpoint-up(md) {
+      text-align: center;
+
+      p {
+        font-size: var(--text-size-3xl);
+      }
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .title {
+    text-align: left;
+    color: var(--color-leaf-text);
+
+    @include breakpoints.media-breakpoint-up(md) {
+      text-align: center;
+    }
+  }
+
+  .tableContainer {
+    width: 100%;
+    padding: 0;
+
+    .desktop,
+    .mobile {
+      display: none;
+      width: 100%;
+      border: none;
+      border-collapse: collapse;
+      border-spacing: 0;
+
+      tr {
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-flow: row nowrap;
+        -webkit-box-align: stretch;
+        align-items: stretch;
+        -webkit-box-pack: center;
+        justify-content: center;
+        background-color: #eaebeb;
+
+        &:nth-of-type(2n) {
+          background-color: #f8f8f8;
+        }
+
+        &:last-of-type {
+          td:first-of-type p {
+            font-family: var(--font-heavy);
+            font-size: var(--text-size-5xl);
+          }
+        }
+      }
+
+      th,
+      td {
+        display: flex;
+        align-items: center;
+        flex: 0 1 25%;
+        max-width: 25%;
+        border: none;
+        overflow: visible;
+        justify-content: flex-start;
+
+        &:not(:first-of-type) {
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          border-left: 1px solid #e0e0e0;
+        }
+
+        &:not(:last-of-type) {
+          border-right: 1px solid #e0e0e0;
+        }
+
+        @for $i from 1 through length(vars.$colors) {
+          $color: nth(vars.$colors, $i);
+
+          &:nth-child(#{$i + 1}) {
+            color: var(--color-#{$color}-text);
+
+            @if $color == lips {
+              svg {
+                color: var(--color-#{$color});
+              }
+            }
+
+            a,
+            button {
+              background-color: var(--color-#{nth(vars.$colors, $i)});
+              border-color: 1px solid var(--color-#{nth(vars.$colors, $i)});
+
+              &:hover,
+              &:focus {
+                background-color: var(--color-#{nth(vars.$colors, $i)}-hover);
+              }
+            }
+          }
+        }
+
+        p {
+          margin: 0;
+          color: #676565;
+        }
+      }
+
+      thead {
+        tr {
+          background-color: #f5f5f5;
+        }
+
+        th {
+          padding: 0.75rem 0.5rem;
+
+          &:first-of-type {
+            font-family: var(--font-light);
+            font-weight: 200;
+            font-size: var(--text-size-5xl);
+            text-align: left;
+            padding: 0.75rem;
+          }
+
+          h3 {
+            text-transform: none;
+          }
+
+          p {
+            margin: 0;
+            font-family: var(--font-bold);
+            font-weight: bold;
+          }
+        }
+      }
+
+      td {
+        padding: 0.75rem;
+
+        h6 {
+          margin: 0;
+        }
+
+        svg {
+          width: 1.14286rem;
+          height: 1.03214rem;
+        }
+
+        a,
+        button {
+          text-align: center;
+          flex-direction: column;
+          text-transform: none;
+          padding: 10px 35px;
+          line-height: 1.286;
+          min-height: 70px;
+
+          br {
+            display: none;
+          }
+
+          span {
+            font-size: var(--text-size-md);
+          }
+
+          p {
+            line-height: 1.286;
+            color: var(--color-white);
+
+            &:not(:first-of-type) {
+              font-size: var(--text-size-xl);
+            }
+          }
+        }
+      }
+    }
+
+    .mobile {
+      display: block;
+      width: 100%;
+      border-bottom: 2px solid #e0e0e0;
+      border-collapse: collapse;
+      border-spacing: 0;
+
+      @each $color in vars.$colors {
+        &.#{$color} {
+          h3,
+          h6,
+          svg {
+            color: var(--color-#{$color}-text);
+          }
+
+          @if $color == lips {
+            svg {
+              color: var(--color-#{$color});
+            }
+          }
+
+          a,
+          button {
+            background-color: var(--color-#{$color}) !important;
+            border-color: 1px solid var(--color-#{$color}) !important;
+
+            svg {
+              color: var(--color-white);
+            }
+
+            &:hover,
+            &:focus {
+              background-color: var(--color-#{$color}-hover) !important;
+            }
+          }
+        }
+      }
+
+      thead {
+        all: unset;
+
+        th {
+          padding: 1rem !important;
+          flex: 1 1 100%;
+          max-width: 100%;
+          justify-content: space-between;
+          background-color: #f8f8f8;
+          border-top: 2px solid #e0e0e0;
+          border-bottom: 2px solid #e0e0e0;
+
+          p {
+            display: none;
+          }
+
+          button {
+            padding: 0;
+            margin: 0.75rem 0 0.375rem;
+
+            svg {
+              height: 2.14286rem;
+              width: 2.14286rem;
+              padding: 0.5rem;
+            }
+          }
+
+          .left svg {
+            transform: scaleX(-1);
+          }
+        }
+      }
+
+      tbody {
+        all: unset;
+
+        td {
+          flex: 1 0 50%;
+          max-width: 50%;
+
+          h3 {
+            text-transform: none;
+          }
+
+          a,
+          button {
+            padding: 10px 22px;
+            font-size: var(--text-size-md);
+            min-height: 58px;
+
+            p {
+              font-size: var(--text-size-md);
+            }
+          }
+        }
+
+        tr {
+          &:first-of-type {
+            td:first-of-type {
+              font-family: var(--font-light);
+              font-weight: 200;
+              font-size: var(--text-size-5xl);
+            }
+          }
+        }
+      }
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      padding: 0 1rem;
+
+      .mobile {
+        display: none;
+      }
+
+      .desktop {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@use '@/styles/variables.scss' as vars;
+@use '@/styles/mixins/breakpoints.scss';
+
+.main {
+  padding: 16px 35px;
+  width: fit-content;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1.286;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-white);
+  font-family: var(--font-xbold);
+
+  font-size: var(--text-size-md);
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    font-size: var(--text-size-xl);
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &.animate {
+    transition:
+      color 0.33s ease-in-out,
+      background-color 0.33s ease-in-out,
+      border-color 0.33s ease-in-out;
+  }
+
+  &.noUnderline {
+    text-decoration: none;
+  }
+
+  @each $color in vars.$colors {
+    &.#{$color} {
+      background-color: var(--color-#{$color});
+      border: 1px solid var(--color-#{$color});
+
+      &.secondary {
+        color: var(--color-#{$color});
+      }
+
+      &:hover,
+      &:focus {
+        background-color: var(--color-#{$color}-hover);
+      }
+    }
+  }
+
+  &.secondary {
+    background-color: var(--color-white);
+    border: 3px solid var(--color-white);
+
+    &:hover,
+    &:focus {
+      color: var(--color-white);
+    }
+  }
+
+  &.mobile {
+    padding: 0.71429rem 1.07143rem;
+    font-size: var(--text-size-md);
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      padding: 16px 35px;
+      font-size: var(--text-size-xl);
+    }
+  }
+}

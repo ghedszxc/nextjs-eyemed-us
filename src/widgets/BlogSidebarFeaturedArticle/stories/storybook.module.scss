@@ -1,0 +1,33 @@
+@use '@/styles/mixins/breakpoints';
+.main {
+  width: 100%;
+  .container {
+    width: 100%;
+    max-width: 69.28571rem;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      //   flex: 0 66.66%;
+      flex-direction: row;
+    }
+
+    .blog {
+      flex: 0 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      background: rgb(131, 224, 135);
+      font-size: 3rem;
+      min-height: 500px;
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        flex: 0 66.66%;
+      }
+    }
+  }
+}

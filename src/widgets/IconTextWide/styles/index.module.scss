@@ -1,0 +1,93 @@
+@use '@/styles/variables.scss' as vars;
+@use '@/styles/mixins/breakpoints';
+
+.iconTextWide {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2.35714rem 0 3.57143rem 0;
+
+  & .iconTextWide_container {
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      width: 69.28571rem;
+    }
+  }
+
+  @each $color in vars.$colors {
+    & .iconTextWide_#{$color}_theme {
+      text-align: left;
+
+      & .iconTextWide_#{$color}_theme__card {
+        display: grid;
+        height: 100%;
+      }
+
+      & .iconTextWide_#{$color}_theme__body {
+        display: grid;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          display: flex;
+        }
+      }
+
+      & .iconTextWide_#{$color}_theme__sub_body {
+        @include breakpoints.media-breakpoint-up(md) {
+          place-self: center;
+        }
+      }
+
+      & .iconTextWide_#{$color}_theme__icon {
+        width: 6.42857rem;
+        height: auto;
+        margin-right: 0;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          flex: 0 1 14.66667%;
+          max-width: 14.66667%;
+          width: 100%;
+          margin-right: 1.8rem;
+        }
+      }
+
+      & .iconTextWide_#{$color}_theme__title {
+        color: var(--color-#{$color}-text);
+        font-family: var(--font-book);
+        font-size: 2.14286rem;
+        line-height: 40px;
+        text-align: left;
+
+        @include breakpoints.media-breakpoint-up(xl) {
+          font-size: var(--text-size-6xl);
+        }
+      }
+
+      & .iconTextWide_#{$color}_theme__subtitle {
+        color: var(--color-moon-text);
+        margin: 0.85714rem 0;
+
+        strong {
+          font-family: var(--font-xbold);
+        }
+
+        a {
+          color: var(--color-#{$color}-text);
+        }
+
+        sup {
+          font-size: var(--text-size-base);
+          color: var(--color-#{$color}-text);
+
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

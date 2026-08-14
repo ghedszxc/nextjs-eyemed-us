@@ -1,0 +1,97 @@
+.simpleCopy {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: left;
+
+  .title {
+    margin-bottom: 1.5rem;
+    color: var(--color-leaf);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .body {
+    color: var(--color-gray);
+    line-height: 1.6;
+    max-width: none;
+    margin: 0;
+
+    h5 {
+      font: var(--text-size-xl) var(--font-bold);
+      color: var(--color-leaf);
+      margin: 2rem 0 1rem 0;
+      line-height: 1.3;
+    }
+
+    p {
+      font: var(--text-size-md) var(--font-regular);
+      margin: 1rem 0;
+    }
+
+    p:first-of-type {
+      margin-top: 0;
+    }
+
+    strong {
+      font: var(--text-size-md) var(--font-heavy);
+    }
+
+    a {
+      color: var(--color-leaf);
+      text-decoration: underline;
+      
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  // Theme variations
+  &.theme-leaf {
+    .title,
+    .body h5,
+    .body a {
+      color: var(--color-leaf);
+    }
+  }
+
+  &.theme-grape {
+    .title,
+    .body h5,
+    .body a {
+      color: var(--color-grape);
+    }
+  }
+
+  &.theme-lips {
+    .title,
+    .body h5,
+    .body a {
+      color: var(--color-lips);
+    }
+  }
+
+  &.theme-sun {
+    .title,
+    .body h5,
+    .body a {
+      color: var(--color-sun);
+    }
+  }
+
+  &.theme-moon {
+    .title,
+    .body h5,
+    .body a {
+      color: var(--color-moon);
+    }
+  }
+
+  &.theme-gray {
+    .title,
+    .body h5,
+    .body a {
+      color: var(--color-gray);
+    }
+  }
+}

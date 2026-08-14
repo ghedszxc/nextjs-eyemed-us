@@ -1,0 +1,150 @@
+@use '@/styles/mixins/breakpoints';
+
+@mixin card-theme($theme) {
+  h6 {
+    background: var(--color-#{$theme});
+  }
+  .link {
+    color: var(--color-#{$theme}-text);
+  }
+}
+
+@mixin arrow-theme($theme) {
+  .left-arrow {
+    background: var(--color-#{$theme});
+  }
+  .right-arrow {
+    background: var(--color-#{$theme});
+  }
+}
+
+.block-cards {
+  width: 100%;
+
+  &.leaf {
+    @include arrow-theme(leaf);
+  }
+  &.lips {
+    @include arrow-theme(lips);
+  }
+  &.grape {
+    @include arrow-theme(grape);
+  }
+  &.sun {
+    @include arrow-theme(sun);
+  }
+
+  .container {
+    // background: greenyellow;
+    // width: 100%;
+    // max-width: 69.28571rem;
+    // overflow: visible;
+    // margin-inline: auto;
+    // padding: 0 1rem;
+
+    // @include breakpoints.media-breakpoint-up(xl) {
+    //   max-width: 73.28571rem;
+    // }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: stretch;
+      // margin: 0 -1rem;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        flex-direction: row;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        margin: 0;
+      }
+    }
+  }
+
+  .card {
+    width: 100%;
+    // border: 1px solid black;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: inherit;
+    padding: 0 1rem;
+
+    &:hover {
+      .link {
+        text-decoration: underline;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      // max-height: 109px;
+    }
+
+    h6 {
+      width: 100%;
+      color: white;
+      margin-top: -1px;
+      padding: 0.57143rem 0 0.57143rem 0.85714rem;
+      margin-bottom: 1.14286rem;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .card-header {
+      margin-bottom: 1.64286rem;
+      min-height: 111px;
+    }
+    .card-description {
+      min-height: 63px;
+    }
+    .link {
+      font-size: 1.28571rem !important;
+      font-family: var(--font-bold);
+
+      text-decoration: none;
+      //   font-weight: 700 !important;
+    }
+    .date {
+      margin-bottom: 0.35714rem;
+      min-height: 21px;
+    }
+
+    &.leaf {
+      @include card-theme(leaf);
+    }
+
+    &.grape {
+      @include card-theme(grape);
+    }
+
+    &.sun {
+      @include card-theme(sun);
+    }
+
+    &.lips {
+      @include card-theme(lips);
+    }
+
+    @include breakpoints.media-breakpoint-up(md) {
+      flex: 0 1 50%;
+      max-width: 50%;
+      margin-bottom: 4rem;
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      flex: 0 1 33.33333%;
+      max-width: 33.33333%;
+    }
+  }
+
+  &.hasSidebar {
+    .card {
+      @include breakpoints.media-breakpoint-up(lg) {
+        flex: 0 1 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}

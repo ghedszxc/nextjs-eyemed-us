@@ -1,0 +1,93 @@
+@use '@/styles/mixins/breakpoints';
+@use '@/styles/variables.scss' as vars;
+
+.m16_blog_post_note {
+  width: 100%;
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .m16_blog_post_note_container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  & .m16_blog_post_note_header {
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-grape);
+  }
+
+  & .m16_blog_post_note_content {
+    background-color: #f4ceef;
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  & .m16_blog_post_note_title {
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+    color: var(--color-grape);
+  }
+
+  & .m16_blog_post_note_body {
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.6;
+
+    h2, h5 {
+      font-family: var(--font-heavy);
+    }
+
+    u {
+      color: #4b4b4b;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style-type: disc;
+      list-style: disc outside;
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+
+    ol {
+      list-style-type: decimal;
+      list-style: decimal outside;
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      display: list-item;
+    }
+  }
+
+  // Theme variations - using @each for higher specificity
+  @each $color in vars.$colors {
+    &.#{$color} {
+      .m16_blog_post_note_header {
+        background-color: var(--color-#{$color});
+      }
+
+      .m16_blog_post_note_title {
+        color: var(--color-#{$color});
+      }
+
+      .m16_blog_post_note_body {
+        color: #000;
+
+        h1, h2, h3, h4, h5, h6 {
+          font-family: var(--font-heavy);
+          color: var(--color-#{$color}) !important;
+        }
+
+        u {
+          color: #4b4b4b;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

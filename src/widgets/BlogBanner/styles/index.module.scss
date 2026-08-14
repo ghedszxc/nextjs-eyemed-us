@@ -1,0 +1,126 @@
+@use '@/styles/mixins/breakpoints';
+
+@mixin theme-variant($color) {
+  h6 {
+    background-color: var(--color-#{$color});
+    color: var(--color-white);
+  }
+}
+
+.blog-banner {
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    margin-bottom: 2rem;
+  }
+
+  .banner-content {
+    width: 100%;
+    max-width: 69.28571rem;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    font-size: var(--text-size-6xl);
+    line-height: 1.077;
+    margin-top: 2rem;
+    margin-bottom: 1.32rem;
+    font-family: var(--font-light);
+
+    @include breakpoints.media-breakpoint-up(md) {
+      font-size: var(--text-size-8xl) !important;
+    }
+  }
+
+  h6 {
+    margin-top: 0px;
+    width: 100%;
+    padding: 0.57143rem 0 0.57143rem 0.85714rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  h5 {
+    font-size: var(--text-size-md);
+    margin: 0;
+  }
+
+  &.leaf {
+    @include theme-variant(leaf);
+  }
+  &.grape {
+    @include theme-variant(grape);
+  }
+  &.lips {
+    @include theme-variant(lips);
+  }
+  &.sun {
+    @include theme-variant(sun);
+  }
+  .banner-actions {
+    padding-bottom: 1.71429rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.71429rem;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      padding-bottom: 2.28571rem;
+    }
+
+    .blog-author-container {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+    .blog-author-image {
+      border-radius: 50%;
+      width: 4.28571rem;
+      height: 4.28571rem;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .blog-author {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @include breakpoints.media-breakpoint-up(md) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  nav {
+    a {
+      margin-right: 0.57143rem;
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+}

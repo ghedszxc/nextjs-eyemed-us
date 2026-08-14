@@ -1,0 +1,146 @@
+@use '@/styles/variables.scss' as vars;
+@use '@/styles/mixins/breakpoints';
+
+.mo2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  & .mo2_container {
+    width: 100%;
+    display: grid;
+    min-height: 90px;
+    grid-template-columns: auto;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      min-height: 180px;
+      grid-template-columns: 25% 25% 25% 25%;
+    }
+
+    & .mo2_container__sub {
+      display: flex;
+      justify-content: left;
+      height: 90px;
+      padding: 1.2rem;
+      position: relative;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        justify-content: center;
+        display: block;
+        padding: 1.2rem 1rem;
+        height: 90%;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: -1px;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+          height: 75%;
+          width: 1px;
+          background-color: #9b9b9b;
+          z-index: -1;
+        }
+
+        &:hover {
+          z-index: 1;
+
+          &:before {
+            content: none;
+          }
+        }
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        display: flex;
+        height: 120px;
+        padding: 2rem 3.5rem;
+      }
+    }
+
+    & .mo2_container__subtext {
+      display: grid;
+      place-content: center;
+
+      strong {
+        font-family: var(--font-heavy);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @each $color in vars.$colors {
+    .mo2_#{$color} {
+      place-content: center;
+      width: 100%;
+      transition: background-color 0.3s ease;
+      border-top: 5px solid var(--color-#{$color});
+      border-bottom: none;
+      cursor: pointer;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        border-top: none;
+        border-bottom: 7px solid var(--color-#{$color});
+      }
+
+      .mo2_#{$color}__icon {
+        margin-right: 1rem;
+        height: 3.77143rem;
+        width: 3.77143rem;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          margin-right: 1.78571rem;
+        }
+      }
+
+      a {
+        color: var(--color-#{$color}-text);
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: var(--background-color, var(--color-#{$color}));
+
+        a {
+          color: var(--color-white);
+        }
+
+        .mo2_#{$color}__icon {
+          fill: var(--color-white);
+        }
+
+        &:global(.dark-#{$color}-fills) {
+          p,
+          strong {
+            color: var(--color-white) !important;
+          }
+
+          svg * {
+            fill: var(--color-white) !important;
+          }
+        }
+
+        &:global(.bright-#{$color}-fills) svg * {
+          fill: var(--color-#{$color}-dark) !important;
+        }
+      }
+    }
+
+    .mo2_container__sub .mo2_#{$color}__icon,
+    .mo2_container__subtext {
+      text-align: left;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        text-align: center;
+        display: flex;
+        place-self: center;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        text-align: left;
+      }
+    }
+  }
+}

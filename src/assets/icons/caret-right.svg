@@ -1,0 +1,16 @@
+<svg
+  viewBox="0 0 11 18"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-11.000000, -6.000000)" fill="currentColor" fill-rule="nonzero">
+      <g transform="translate(11.000000, 6.000000)">
+        <path
+          d="M0.5,16.7870877 L0.5,1.21288541 C0.5,0.134474007 1.77729209,-0.405579028 2.52429126,0.356959153 L10.1527068,8.1440603 C10.6157644,8.61675045 10.6157644,9.38322267 10.1527068,9.85591282 L2.52429126,17.643014 C1.77729209,18.4056127 0.5,17.8654991 0.5,16.7870877 Z"
+        ></path>
+      </g>
+    </g>
+  </g>
+</svg>

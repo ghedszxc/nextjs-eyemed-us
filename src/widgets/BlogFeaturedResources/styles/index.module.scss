@@ -1,0 +1,25 @@
+.blog-featured-resources {
+  width: 100%;
+
+  .title {
+    font-size: var(--text-size-3xl);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--color-leaf-text);
+    color: var(--color-leaf-text);
+    font-weight: 400;
+  }
+
+  .resource {
+    background-color: var(--color-white);
+
+    svg {
+      margin: 0 0.5rem 0 0.75rem;
+    }
+
+    p {
+      margin-right: 0.5rem;
+      cursor: default;
+    }
+  }
+}

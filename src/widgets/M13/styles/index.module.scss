@@ -1,0 +1,81 @@
+@use '@/styles/mixins/breakpoints.scss';
+@use '@/styles/variables.scss' as vars;
+
+.m13 {
+  padding-bottom: 3.57143rem;
+  padding-top: 2.35714rem;
+
+  @each $color in vars.$colors {
+    &.#{$color} {
+      p a,
+      sup,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--color-#{$color}-text);
+      }
+    }
+  }
+
+  /* TODO: Fix Container component padding */
+  .container {
+    width: 100%;
+    max-width: 69.28571rem;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+
+    &.featured-list {
+      max-width: 55.64286rem;
+    }
+  }
+
+  .body,
+  .body p {
+    font-size: var(--text-size-md);
+    max-width: 55.64286rem;
+    margin: 1em auto;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      font-size: var(--text-size-3xl);
+    }
+  }
+
+  .title {
+    text-align: left;
+    margin-bottom: 2.14286rem;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      text-align: center;
+    }
+  }
+
+  .listings {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+    margin-top: 1rem;
+
+    .row {
+      flex: 0 1 100%;
+      max-width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      @media (min-width: 480px) {
+        flex: 0 1 50%;
+        max-width: 50%;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        flex: 0 1 33.33333%;
+        max-width: 33.33333%;
+      }
+    }
+  }
+}

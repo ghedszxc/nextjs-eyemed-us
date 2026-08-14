@@ -1,0 +1,56 @@
+:root {
+  /* Color Palette */
+  --color-white: #fff;
+  --color-gray: #717272;
+
+  /* Leaf */
+  --color-leaf: #308729;
+  --color-leaf-dark: #00661f;
+  --color-leaf-hover: #297323;
+  --color-leaf-text: #227b13;
+
+  /* Grape */
+  --color-grape: #9f248f;
+  --color-grape-dark: #750068;
+  --color-grape-hover: #8a1f7c;
+  --color-grape-text: #9f248f;
+
+  /* Lips */
+  --color-lips: #e40571;
+  --color-lips-dark: #8e0032;
+  --color-lips-hover: #cb0465;
+  --color-lips-text: #b5055b;
+
+  /* Sun */
+  --color-sun: #d04800;
+  --color-sun-dark: #af2503;
+  --color-sun-hover: #b73f00;
+  --color-sun-text: #c43400;
+
+  /* Moon */
+  --color-moon: #767777;
+  --color-moon-hover: #767777;
+  --color-moon-text: #767777;
+
+  /* Typography */
+  --font-regular: Nexa, Helvetica, sans-serif;
+  --font-book: Nexa Book, Helvetica, sans-serif;
+  --font-light: Nexa Light, Helvetica, sans-serif;
+  --font-bold: Nexa Bold, Helvetica, sans-serif;
+  --font-xbold: Nexa XBold, Helvetica, sans-serif;
+  --font-heavy: Nexa Heavy, Helvetica, sans-serif;
+
+  --text-size-xs: 0.85714rem; /* 13.7142px */
+  --text-size-sm: 0.875rem; /* 14px */
+  --text-size-md: 1rem; /* 16px */
+  --text-size-lg: 1.14286rem; /* 18.2858px */
+  --text-size-xl: 1.17857rem; /* 18.8571px */
+  --text-size-2xl: 1.21429rem; /* 19.4286px */
+  --text-size-3xl: 1.28571rem; /* 20.5714px */
+  --text-size-4xl: 1.35714rem; /* 21.7142px */
+  --text-size-5xl: 1.57143rem; /* 25.1429px */
+  --text-size-6xl: 2.14286rem; /* 34.2858px */
+  --text-size-7xl: 3.28571rem; /* 52.5714px */
+  --text-size-8xl: 3.71429rem; /* 59.4286px */
+  --text-size-9xl: 4.14286rem; /* 66.2858px */
+}

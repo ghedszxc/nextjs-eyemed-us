@@ -1,0 +1,371 @@
+@use '@/styles/variables.scss' as vars;
+@use '@/styles/mixins/breakpoints';
+
+.mo6 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 3.57143rem 0;
+
+  & .mo6_container {
+    width: 100%;
+    text-align: center;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      width: 70.28571rem;
+    }
+
+    @include breakpoints.media-breakpoint-up(xl) {
+      width: 69.28571rem;
+    }
+  }
+
+  & .mo6_container_items {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+      place-content: start space-around;
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      grid-template-columns: repeat(3, 1fr);
+      place-content: start space-around;
+    }
+  }
+
+  .textCenter {
+    p {
+      text-align: center !important;
+    }
+  }
+
+  .noPadding {
+    padding: 0 0 3.57143rem !important;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      padding: 0 0.5rem 3.57143rem !important;
+    }
+  }
+
+  @each $color in vars.$colors {
+    & .mo6_card_#{$color} {
+      padding: 0 1rem;
+      justify-self: center;
+
+      max-width: 55.64286rem;
+      width: 100%;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        width: auto;
+      }
+
+      h1 {
+        color: var(--color-#{$color}-text);
+      }
+
+      h2 {
+        color: var(--color-#{$color}-text);
+        font-family: var(--font-book);
+        font-size: var(--text-size-6xl);
+        line-height: 40px;
+        text-align: left;
+
+        margin: 2.14286rem 0;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          text-align: center;
+        }
+      }
+
+      p {
+        text-align: left;
+        color: var(--color-moon-text);
+        font-family: var(--font-regular);
+
+        font-size: 1rem;
+        margin-bottom: 45px;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          max-width: 100%;
+          font-size: 1.29rem;
+        }
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          max-width: 55.64286rem;
+          font-size: var(--text-size-3xl);
+        }
+      }
+
+      a {
+        color: var(--color-#{$color}-text);
+      }
+
+      sup {
+        font-size: var(--text-size-base);
+        color: var(--color-#{$color}-text);
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    & .mo6_#{$color}_theme {
+      text-align: left;
+      padding: 0 1rem 3rem;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        padding: 0 1.6rem 3.57143rem 0;
+        flex-basis: 49%;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        flex-basis: 33%;
+        margin-bottom: 0;
+      }
+
+      & .mo6_#{$color}_theme__card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      & .mo6_#{$color}_theme__icon {
+        width: 3.78571rem;
+        height: 3.78571rem;
+      }
+
+      & .mo6_#{$color}_theme__actions {
+        margin-top: 2rem;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          margin-top: 3rem;
+        }
+      }
+
+      & .mo6_#{$color}_theme__button {
+        position: relative;
+        margin-top: -0.5rem;
+        bottom: 0;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          position: absolute;
+          margin-top: 0;
+          bottom: -20px;
+        }
+      }
+
+      & .mo6_#{$color}_theme__title {
+        color: var(--color-#{$color}-text);
+        font-family: var(--font-book);
+        font-size: 2.14286rem;
+        line-height: 40px;
+        text-align: left;
+
+        @include breakpoints.media-breakpoint-up(xl) {
+          font-size: var(--text-size-6xl);
+        }
+      }
+
+      & .mo6_#{$color}_theme__titleTagHeader {
+        color: var(--color-#{$color}-text);
+        font-family: var(--font-xbold);
+        font-size: 2.14286rem;
+        line-height: 1.09;
+        text-align: left;
+        text-transform: uppercase;
+
+        @include breakpoints.media-breakpoint-up(xl) {
+          font-size: var(--text-size-5xl);
+        }
+      }
+
+      & .mo6_#{$color}_theme__subtitle {
+        color: var(--color-moon-text);
+        font-size: 1.2rem !important;
+
+        a {
+          color: var(--color-#{$color}-text);
+        }
+
+        strong,
+        b {
+          font-family: var(--font-xbold);
+        }
+
+        @include breakpoints.media-breakpoint-up(xl) {
+          font-size: 1rem !important;
+        }
+
+        sup {
+          font-size: var(--text-size-base);
+          color: var(--color-#{$color}-text);
+
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      // IMAGE VARIANT
+      & .mo6_#{$color}_theme__image {
+        height: auto;
+        width: 100%;
+      }
+
+      & .mo6_#{$color}_theme__image_card {
+        display: grid;
+        place-items: center right;
+
+        text-align: right;
+
+        background-image: url('../../../../public/images/m06-eye.png');
+        background-size: 68% 100%;
+        background-repeat: no-repeat;
+        background-position: right;
+
+        position: absolute;
+        bottom: -1px;
+        right: -1px;
+
+        width: 100%;
+        height: 35%;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          height: 40%;
+        }
+      }
+
+      & .mo6_#{$color}_theme__image_card_body {
+        width: 55%;
+        padding: 2rem 1rem 0 0;
+      }
+
+      & .mo6_#{$color}_theme__image_card_title {
+        color: var(--color-#{$color}-text);
+        font-family: var(--font-light);
+        font-size: var(--text-size-8xl);
+        line-height: 40px;
+      }
+
+      // VIDEO VARIANT
+      & .mo6_#{$color}_theme__video_thumbnail {
+        display: grid;
+        place-items: center right;
+        text-align: right;
+        cursor: pointer;
+      }
+    }
+
+    & .mo6_footer_#{$color} {
+      padding: 0;
+      margin-top: -30px;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        padding: 0 1rem;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        margin-top: 60px;
+      }
+
+      @include breakpoints.media-breakpoint-up(xl) {
+        margin-top: 20px;
+      }
+
+      p {
+        text-align: center;
+        color: var(--color-moon-text);
+        font-family: var(--font-regular);
+
+        justify-self: center;
+        font-size: 1rem;
+        margin-bottom: 60px;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          margin-bottom: 50px;
+          max-width: 42.64286rem;
+          font-size: 1.29rem;
+        }
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          max-width: 55.64286rem;
+          font-size: var(--text-size-3xl);
+        }
+      }
+
+      & .mo6_footer_#{$color}__button {
+        padding: 0 1rem;
+        justify-self: center;
+        width: 100%;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          justify-self: center;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+// VIDEO VARIANT
+.mo6_video_card {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  & .mo6_video_card__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  & .mo6_video_card__player {
+    text-align: right;
+
+    width: 100vw;
+    height: 33%;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      width: 100vw;
+      height: 58%;
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      height: 60%;
+      max-height: 52rem;
+      max-width: 59rem;
+    }
+
+    @include breakpoints.media-breakpoint-up(xl) {
+      height: 80%;
+      max-height: 39.5rem;
+      max-width: 69rem;
+    }
+
+    iframe {
+      border: none;
+    }
+  }
+
+  & .mo6_video_card__icon {
+    cursor: pointer;
+  }
+}
+
+.mo6_item_btn {
+  @include breakpoints.media-breakpoint-up(md) {
+    position: absolute;
+    bottom: 0;
+  }
+}

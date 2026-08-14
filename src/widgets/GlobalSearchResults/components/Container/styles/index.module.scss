@@ -1,0 +1,10 @@
+@use '@/styles/mixins/breakpoints';
+
+.container {
+  width: 100%;
+  max-width: 69.28571rem;
+  margin-inline: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 3.57143rem;
+}

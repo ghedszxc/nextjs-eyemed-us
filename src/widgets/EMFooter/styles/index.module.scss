@@ -1,0 +1,285 @@
+@use '@/styles/mixins/breakpoints.scss';
+
+.footer {
+  width: 100%;
+  overflow: hidden;
+  color: var(--color-gray);
+  background-color: var(--color-white);
+  border-top: 0.35714rem solid #f8f8f8;
+
+  a {
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 69.28571rem;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main {
+    margin: 2.14286rem 0 1.42857rem;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      margin: 3.57143rem 0 2.85714rem;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        flex-direction: row;
+      }
+
+      .column1 {
+        flex: 0 1 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        padding-bottom: 1.5rem;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          flex: 0 1 77%;
+          max-width: 77%;
+        }
+
+        .nav {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          @include breakpoints.media-breakpoint-up(lg) {
+            justify-content: space-between;
+            row-gap: 4rem;
+          }
+
+          ul {
+            width: 50%;
+            text-align: center;
+
+            @include breakpoints.media-breakpoint-up(lg) {
+              width: 20%;
+              text-align: left;
+            }
+
+            li {
+              margin-bottom: 0.5rem;
+              color: var(--color-gray);
+
+              &:first-of-type {
+                margin-bottom: 0.5rem;
+                color: var(--color-leaf);
+              }
+
+              &:not(:first-of-type) {
+                display: none;
+              }
+
+              .link {
+                font-size: var(--text-size-md);
+              }
+
+              @include breakpoints.media-breakpoint-up(lg) {
+                .link {
+                  font-size: var(--text-size-lg);
+                }
+
+                &:not(:first-of-type) {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .column2 {
+        flex: 0 1 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          flex: 0 1 23%;
+          max-width: 23%;
+        }
+
+        .btn {
+          width: fit-content;
+          margin: 0 auto;
+
+          @include breakpoints.media-breakpoint-up(lg) {
+            width: 100%;
+          }
+        }
+
+        .social {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: flex-start;
+          margin: auto;
+          max-width: 260px;
+
+          a {
+            flex: 1 0 10%;
+            display: block;
+            margin: 1.5rem 0.35714rem;
+            position: relative;
+
+            &:first-of-type {
+              margin-left: 0;
+            }
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sub {
+    background-color: #f8f8f8;
+    padding: 1.07143rem 0;
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      padding: 0.35714rem 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 16px;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          flex-direction: row;
+          margin-top: 1rem;
+          margin-bottom: 0.75rem;
+        }
+
+        &:first-of-type {
+          margin-bottom: 0;
+          align-items: center;
+          order: 2;
+
+          @include breakpoints.media-breakpoint-up(lg) {
+            order: -1;
+            margin-top: 0.75rem;
+          }
+        }
+
+        ul {
+          display: block;
+          text-align: center;
+          margin: 14px 0;
+
+          @include breakpoints.media-breakpoint-up(lg) {
+            margin: 0;
+          }
+
+          li {
+            display: block;
+            margin-bottom: 10px;
+
+            span {
+              font-size: 14px !important;
+            }
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+
+            @include breakpoints.media-breakpoint-up(md) {
+              display: inline-block;
+
+              &:last-of-type {
+                margin-bottom: 10px;
+              }
+
+              &:not(:last-child)::after {
+                content: '|';
+                font-size: var(--text-size-sm);
+                margin: 0 0.5rem;
+              }
+            }
+          }
+        }
+
+        .privacy {
+          height: 15px;
+          width: auto;
+          margin-left: 5px;
+        }
+
+        .logo {
+          width: 4.64286rem;
+          height: 4.64286rem;
+
+          @include breakpoints.media-breakpoint-up(lg) {
+            width: 3.5rem;
+            height: 3.5rem;
+          }
+        }
+
+        .lockup {
+          margin-top: 1rem;
+          padding-top: 1.25rem;
+          border-top: 1px solid #9b9b9b;
+          margin-bottom: 0.5rem;
+          width: 17.14286rem;
+          height: auto;
+
+          @include breakpoints.media-breakpoint-up(lg) {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            margin-bottom: 0;
+            width: auto;
+            height: 2.28571rem;
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: none;
+            border-left: 1px solid #9b9b9b;
+          }
+        }
+      }
+    }
+  }
+}

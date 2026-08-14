@@ -1,0 +1,261 @@
+@use '@/styles/variables.scss' as vars;
+@use '@/styles/mixins/breakpoints';
+
+@each $color in vars.$colors {
+  .mo4 {
+    padding: 0 0 2rem;
+    position: relative;
+    height: auto;
+    display: block;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      padding: 3.57143rem 0;
+    }
+  }
+
+  .mo4_container {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      max-width: 69.28571rem;
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      padding: 0 1rem;
+    }
+
+    & .mo4_container__inner {
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0;
+      display: grid;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        display: flex;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        margin: 0 -1rem;
+      }
+    }
+  }
+
+  .mo4_text_card {
+    padding: 0 1rem;
+    flex: 0 1 100%;
+    max-width: 100%;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      flex: 0 1 50%;
+      max-width: 50%;
+    }
+
+    & .mo4_text_card__featured_copy_wrap {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      display: grid;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        justify-content: center;
+        display: flex;
+      }
+    }
+
+    & .m04_text_card__texts {
+      // padding-bottom: 3.57143rem;
+      padding: 2.35714rem 0;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        padding: 0;
+      }
+    }
+
+    & .m04_text_card__icon_#{$color} {
+      width: 3.92857rem;
+      height: 3.92857rem;
+
+      margin: 0;
+      @include breakpoints.media-breakpoint-up(lg) {
+        margin: 0 1.07143rem 1.8rem;
+      }
+    }
+
+    & .mo4_text_card__title_#{$color} {
+      font-size: var(--text-size-6xl);
+      line-height: 1.233;
+      color: var(--color-#{$color}-text);
+
+      margin: 2.14286rem 0 1rem;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        margin: 2rem 0 1rem;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        margin: 0 1.07143rem 0.65714rem;
+      }
+    }
+
+    & .mo4_text_card__subtitle_#{$color} {
+      color: var(--color-moon-text);
+
+      margin: 0;
+      @include breakpoints.media-breakpoint-up(lg) {
+        margin: 0 1.07143rem;
+      }
+
+      strong {
+        font-family: var(--font-xbold);
+      }
+
+      a {
+        color: var(--color-#{$color}-text);
+      }
+
+      ul {
+        list-style-type: disc;
+        margin-left: 1.2rem;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          line-height: 30px;
+        }
+
+        li {
+          margin-bottom: 0;
+
+          @include breakpoints.media-breakpoint-up(lg) {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+
+      ol {
+        list-style-type: decimal;
+        margin-left: 1.2rem;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+          margin-left: 1.5rem;
+          line-height: 30px;
+        }
+
+        li {
+          margin-bottom: 0;
+
+          @include breakpoints.media-breakpoint-up(lg) {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+
+      sup {
+        font-size: var(--text-size-base);
+        color: var(--color-#{$color}-text);
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+
+      h4 {
+        color: var(--color-#{$color}-text);
+      }
+    }
+
+    & .mo4_text_card__button_#{$color} {
+      margin: 2.14286rem 0 0;
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        margin: 2.14286rem 1.07143rem 0;
+      }
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        margin-top: 0;
+      }
+    }
+
+    & .mo4_text_card__image {
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 -1rem;
+      display: flex;
+
+      & .mo4_text_card__image_column {
+        flex: 0 1 100%;
+        max-width: 100%;
+        padding: 0;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          padding: 0 1rem;
+          flex: 0 1 83.33333%;
+          max-width: 83.33333%;
+        }
+      }
+
+      & .mo4_text_card__image_square {
+        width: 100%;
+        height: 0;
+        position: relative;
+        padding-bottom: 100%;
+      }
+
+      & .mo4_text_card__image_landscape {
+        width: 100%;
+        height: 0;
+        position: relative;
+        padding-bottom: 66.6667%;
+
+        @include breakpoints.media-breakpoint-up(md) {
+          padding-bottom: 100%;
+        }
+      }
+    }
+  }
+
+  .m04_image {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .left {
+    div:first-child {
+      order: 1;
+    }
+
+    div:nth-child(2) {
+      order: 0;
+    }
+  }
+
+  .right {
+    div:first-child {
+      order: 1;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        order: 0;
+      }
+    }
+
+    div:nth-child(2) {
+      order: 0;
+
+      @include breakpoints.media-breakpoint-up(md) {
+        order: 1;
+      }
+    }
+  }
+}

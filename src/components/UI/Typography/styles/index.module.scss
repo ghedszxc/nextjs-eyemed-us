@@ -1,0 +1,46 @@
+@use '@/styles/variables.scss' as vars;
+
+.main {
+  @each $color in vars.$colors {
+    &.#{$color} {
+      color: var(--color-#{$color}-text);
+    }
+  }
+
+  &.muted {
+    color: var(--color-gray);
+  }
+
+  &.bold {
+    font-family: var(--font-bold);
+  }
+
+  &.italic {
+    font-style: italic;
+  }
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.strikeThrough {
+    text-decoration: line-through;
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.capitalize {
+    text-transform: capitalize;
+  }
+
+  &.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,144 @@
+@use '@/styles/mixins/breakpoints';
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  min-width: 320px;
+  height: auto;
+  min-height: 200px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: modalSlideIn 0.3s ease-out;
+
+  // Size variations
+  &.size-small {
+    max-width: 400px;
+    min-height: 150px;
+  }
+
+  &.size-medium {
+    max-width: 600px;
+    min-height: 200px;
+  }
+
+  &.size-large {
+    max-width: 800px;
+    min-height: 300px;
+  }
+
+  &.size-full {
+    max-width: 95vw;
+    max-height: 95vh;
+    min-height: 400px;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  flex-shrink: 0;
+}
+
+.modal-title {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline-offset: 2px;
+  }
+}
+
+.modal-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+
+  p {
+    font: var(--text-size-lg) var(--font-regular);
+    margin: 0 0 2rem 0;
+    line-height: 1.5;
+  }
+
+  strong,
+  b {
+    font: 700 var(--text-size-lg) var(--font-xbold);
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  u {
+    text-decoration: underline;
+  }
+}
+
+// Animation
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Responsive adjustments for mobile
+@media (max-width: 768px) {
+  .modal {
+    margin: 0.5rem;
+    max-height: calc(100vh - 1rem);
+  }
+
+  .modal-header {
+    padding: 1rem 1rem 0.75rem 1rem;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+
+  .modal-title {
+    font-size: var(--text-size-xl);
+  }
+} 

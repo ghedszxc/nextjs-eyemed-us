@@ -1,0 +1,11 @@
+@use '@/styles/mixins/breakpoints';
+.blogSearchList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+
+  @include breakpoints.media-breakpoint-up(md) {
+    padding: 1.5rem 3rem 1.5rem 1.5rem;
+  }
+}
